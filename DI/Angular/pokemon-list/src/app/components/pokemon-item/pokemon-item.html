@@ -1,0 +1,15 @@
+<div class="pokedex-card">
+  <div class="screen">
+    <img [src]="pokemon()?.photoUrl" [alt]="pokemon()?.nombrePokemon" />
+  </div>
+
+  <div class="info">
+    <h4 class="name">{{ pokemon()?.nombrePokemon }}</h4>
+
+    <span class="badge type-badge bg-danger">
+      {{ pokemon()?.tipo }}
+    </span>
+
+    <a class="btn btn-danger btn-sm mt-3"> Ver detalle </a>
+  </div>
+</div>

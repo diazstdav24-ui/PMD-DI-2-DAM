@@ -1,0 +1,33 @@
+<div class="container-fluid mt-5">
+  <div class="pokedex">
+    <header class="pokedex-header">
+      <div class="lens"></div>
+      <span class="led led-red"></span>
+      <span class="led led-yellow"></span>
+      <span class="led led-green"></span>
+      <h1 class="pokedex-title">POKÉDEX</h1>
+    </header>
+
+    <div class="pokedex-body container">
+      <div class="row g-3">
+        <!--Por cada pokemo de la lista- Sacalo, trackea su id, añade el pokemon a la card -->
+        @for (pokemon of pokemonList; track pokemon.id) {
+          <div class="col-md-3 col-12">
+            <!--Usas la "funcion input()" del constuctor para añadir el item pokem-->
+            <app-pokemon-item [pokemon]="pokemon"></app-pokemon-item>
+
+            <!--
+          <div class="card" style="max-width: 320px">
+            <img [src]="pokemon()?.photoUrl" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h4 class="card-title">{{ pokemon()?.nombrePokemon }}</h4>
+              <p class="card-text">{{ pokemon()?.tipo }}</p>
+              <a href="#" class="btn-solid theme-primary">View pokemon detail</a>
+            </div>
+          </div>
+          --></div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

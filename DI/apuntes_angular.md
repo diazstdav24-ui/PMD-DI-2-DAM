@@ -8,17 +8,18 @@ tags: [angular, componentes, data-binding]
 
 ## 1. Comandos básicos de Angular CLI
 
-| Comando | Qué hace |
-|---|---|
-| `ng new hola-mundo` | Crea un proyecto nuevo con toda la estructura inicial |
-| `ng serve` | Arranca el servidor de desarrollo (por defecto en `http://localhost:4200`) |
-| `ng serve -o` | Igual, pero además **abre el navegador** automáticamente (`-o` = `--open`) |
-| `ng generate component car` | Genera un componente |
-| `ng g c car` | Lo mismo, abreviado (`g` = generate, `c` = component) |
+| Comando                                   | Qué hace                                                                              |
+| ----------------------------------------- | ------------------------------------------------------------------------------------- |
+| `ng new hola-mundo`                       | Crea un proyecto nuevo con toda la estructura inicial                                 |
+| `ng serve`                                | Arranca el servidor de desarrollo (por defecto en `http://localhost:4200`)            |
+| `ng serve -o`                             | Igual, pero además **abre el navegador** automáticamente (`-o` = `--open`)            |
+| `ng generate component car`               | Genera un componente                                                                  |
+| `ng g c car`                              | Lo mismo, abreviado (`g` = generate, `c` = component)                                 |
 | `ng g c components/car-list --skip-tests` | Lo crea dentro de la carpeta `components/` y **sin** el fichero de tests (`.spec.ts`) |
 
 > [!tip] Profundiza
 > `ng g c` crea una carpeta con 3 ficheros (4 si no usas `--skip-tests`):
+>
 > - `car-list.ts` → la clase (lógica)
 > - `car-list.html` → la plantilla (vista)
 > - `car-list.css` → los estilos, solo afectan a ese componente
@@ -64,18 +65,18 @@ App  →  CarList  →  CarItem
 ### Anatomía de un componente
 
 ```ts
-import { Component, signal } from '@angular/core';
-import { Toolbar } from './components/toolbar/toolbar';
-import { CarItem } from './components/car-item/car-item';
+import { Component, signal } from "@angular/core";
+import { Toolbar } from "./components/toolbar/toolbar";
+import { CarItem } from "./components/car-item/car-item";
 
 @Component({
-  imports: [Toolbar, CarItem],   // componentes que uso en MI html
-  selector: 'app-root',          // nombre de la etiqueta
-  styleUrl: './app.css',
-  templateUrl: './app.html',
+  imports: [Toolbar, CarItem], // componentes que uso en MI html
+  selector: "app-root", // nombre de la etiqueta
+  styleUrl: "./app.css",
+  templateUrl: "./app.html",
 })
 export class App {
-  protected readonly title = signal('hello-world');
+  protected readonly title = signal("hello-world");
 }
 ```
 
@@ -83,6 +84,7 @@ export class App {
 - **`imports`**: **hay que importar los componentes que voy a usar en la plantilla**. Si no, Angular no reconoce la etiqueta y da error.
 
 > [!tip] Profundiza
+>
 > - Si importas un componente y **no** lo usas en el HTML, Angular avisa con el warning `NG8113: X is not used within the template`. No rompe nada, pero conviene quitarlo.
 > - `signal('hello-world')` crea un valor reactivo. En la plantilla se lee **llamándolo como función**: `{{ title() }}`.
 
@@ -112,8 +114,18 @@ En el componente se crea la lista **fuera de la clase** y luego se asigna a una 
 
 ```ts
 const CARS: Car[] = [
-  { name: 'Russia', flag: 'f/f3/Flag_of_Russia.svg', area: 17075200, population: 146989754 },
-  { name: 'Canada', flag: 'c/cf/Flag_of_Canada.svg', area: 9976140, population: 36624199 },
+  {
+    name: "Russia",
+    flag: "f/f3/Flag_of_Russia.svg",
+    area: 17075200,
+    population: 146989754,
+  },
+  {
+    name: "Canada",
+    flag: "c/cf/Flag_of_Canada.svg",
+    area: 9976140,
+    population: 36624199,
+  },
 ];
 
 export class CarList {
@@ -122,9 +134,16 @@ export class CarList {
 ```
 
 > [!warning] Errores en lo de clase (ojo al copiarlo)
+>
 > - A la interfaz le faltaba **`export`**. Sin él no se puede importar desde otro fichero.
 > - La interfaz tenía `brand`, `model` y `urlP`, pero los datos usan `name`, `flag` y `area`. **Los campos tienen que coincidir** o TypeScript da error.
 > - `const` **no se puede escribir dentro de una clase**. Va fuera (arriba del todo) o se pone como propiedad sin `const`.
+
+![alt text](image-1.png)
+![alt text](image-2.png)
+
+**Creacion de la lista:**
+![alt text](image-3.png)
 
 ---
 
@@ -132,14 +151,15 @@ export class CarList {
 
 **Data binding** (o template binding) es cómo se comunican la **clase** (`.ts`) y la **plantilla** (`.html`).
 
-| Tipo | Sintaxis | Dirección | Ejemplo |
-|---|---|---|---|
-| Interpolación | `{{ }}` | clase → vista | `{{ title }}` |
-| Property binding | `[ ]` | clase → vista | `[class]="titleColor"` |
-| Event binding | `( )` | vista → clase | `(click)="changeColorTitle()"` |
+| Tipo             | Sintaxis | Dirección     | Ejemplo                        |
+| ---------------- | -------- | ------------- | ------------------------------ |
+| Interpolación    | `{{ }}`  | clase → vista | `{{ title }}`                  |
+| Property binding | `[ ]`    | clase → vista | `[class]="titleColor"`         |
+| Event binding    | `( )`    | vista → clase | `(click)="changeColorTitle()"` |
 
 > [!warning] Corrección
 > En el apunte ponía "propiedades con paréntesis, elementos con corchetes". Es **al revés**:
+>
 > - **Corchetes `[ ]` → propiedades**: meten un valor de la clase en una propiedad del HTML.
 > - **Paréntesis `( )` → eventos**: cuando pasa algo en el HTML, llaman a un método de la clase.
 
@@ -148,6 +168,7 @@ export class CarList {
 ```html
 <h1>{{ title }} {{ 5 + 6 }}</h1>
 ```
+
 Muestra el valor de una propiedad. También **evalúa expresiones**: `{{ 5 + 6 }}` pinta `11`.
 
 ### Property binding
@@ -155,6 +176,7 @@ Muestra el valor de una propiedad. También **evalúa expresiones**: `{{ 5 + 6 }
 ```html
 <h1 [class]="titleColor">{{ title }}</h1>
 ```
+
 Con corchetes, lo de dentro de las comillas **no es texto**: es una propiedad de la clase. Aquí la clase CSS del `h1` es lo que valga `titleColor`.
 
 ### Event binding
@@ -162,24 +184,33 @@ Con corchetes, lo de dentro de las comillas **no es texto**: es una propiedad de
 ```html
 <button (click)="changeColorTitle()">Change color title</button>
 ```
+
 Hay que **definir el método** en la clase y llamarlo desde el evento. Con `(click)` solo, sin método, no hace nada.
 
 ```ts
 export class CarList {
-  title = 'CAR LIST ...';
-  titleColor = 'title-danger';
+  title = "CAR LIST ...";
+  titleColor = "title-danger";
 
   changeColorTitle() {
-    if (this.titleColor === 'title-danger') {
-      this.titleColor = 'title-success';
+    if (this.titleColor === "title-danger") {
+      this.titleColor = "title-success";
     } else {
-      this.titleColor = 'title-danger';
+      this.titleColor = "title-danger";
     }
   }
 }
 ```
 
 > [!tip] Profundiza
+>
 > - En clase se usó `==`. En TypeScript usa siempre **`===`**: compara también el tipo y evita sorpresas.
 > - Al cambiar `titleColor`, Angular **actualiza la vista solo**. Esa es la gracia del binding: tocas el dato y el HTML se repinta sin que tú hagas nada.
 > - Truco para no liarte: `[( )]` (llamado "banana in a box") es el **two-way binding**, que combina ambas direcciones. Se verá más adelante con formularios.
+
+## 7.Lista de componentes
+
+El NGBModule es un modulo de bootstrap que inclue todas las importaciones
+
+**Invoco a la lista**
+![alt text](image.png)
