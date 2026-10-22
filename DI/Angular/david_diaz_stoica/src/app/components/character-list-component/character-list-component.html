@@ -1,0 +1,5 @@
+<div class="d-flex justify-content-space-between">
+  @for (character of characterList(); track character.id) {
+    <app-character-item-component [character]="character"></app-character-item-component>
+  }
+</div>

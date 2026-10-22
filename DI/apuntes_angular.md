@@ -214,3 +214,7 @@ El NGBModule es un modulo de bootstrap que inclue todas las importaciones
 
 **Invoco a la lista**
 ![alt text](image.png)
+
+## Imagen de ejemplo de como se relacionan las clases
+
+![alt text](image-4.png)

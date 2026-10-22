@@ -1,0 +1,8 @@
+<p><button (click)="loadEpisodeList()">Cargar lista Episodios</button></p>
+
+<h1>Episodios</h1>
+
+<!--Mismo nombre que en el episodio-list-component -->
+@for (ep of episodioList; track ep.id) {
+  <app-episodio-item-component [episode]="ep"></app-episodio-item-component>
+}

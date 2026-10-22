@@ -1,8 +1,8 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { EpisodiosListComponent } from './component/episode-list-component/episode-list-component';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [EpisodiosListComponent],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
