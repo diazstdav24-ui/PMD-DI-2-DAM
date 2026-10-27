@@ -1,0 +1,9 @@
+<article class="card">
+  <span class="card__id">#{{ id() }}</span>
+
+  <div class="card__screen">
+    <img class="card__sprite" [src]="imageUrl()" [alt]="pokemon()?.name" />
+  </div>
+
+  <h2 class="card__name">{{ pokemon()?.name }}</h2>
+</article>

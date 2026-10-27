@@ -1,0 +1,5 @@
+<div class="row">
+  @for (item of pokemonList(); track item.name) {
+    <app-pokemon-item-component [pokemon]="item"></app-pokemon-item-component>
+  }
+</div>

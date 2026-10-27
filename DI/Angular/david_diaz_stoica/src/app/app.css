@@ -1,0 +1,75 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #1a1a1a;
+  font-family: 'Press Start 2P', monospace;
+  padding: 24px;
+}
+
+.pokedex {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #d62828;
+  padding: 16px;
+  box-shadow:
+    -6px 0 0 0 #000,
+    6px 0 0 0 #000,
+    0 -6px 0 0 #000,
+    0 6px 0 0 #000;
+}
+
+.pokedex__top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 6px solid #000;
+}
+
+.pokedex__lens {
+  width: 48px;
+  height: 48px;
+  background: #4cc9f0;
+  box-shadow:
+    -4px 0 0 0 #fff,
+    4px 0 0 0 #fff,
+    0 -4px 0 0 #fff,
+    0 4px 0 0 #fff,
+    inset 6px 6px 0 0 #bde9fa;
+}
+
+.pokedex__title {
+  margin: 0;
+  color: #fff;
+  font-size: 22px;
+  text-shadow: 3px 3px 0 #000;
+}
+
+.pokedex__nav {
+  display: flex;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.pokedex__nav a {
+  background: #ffd60a;
+  color: #000;
+  padding: 10px 14px;
+  font-size: 11px;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 0 #000;
+}
+
+.pokedex__nav a:hover,
+.pokedex__nav a.active {
+  background: #fff;
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 0 #000;
+}
+
+.pokedex__screen {
+  background: #9bbc0f;
+  padding: 20px;
+  box-shadow: inset 6px 6px 0 0 #306230;
+}
