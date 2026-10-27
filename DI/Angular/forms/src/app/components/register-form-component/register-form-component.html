@@ -1,0 +1,136 @@
+<main class="register-page">
+  <section class="register-card" aria-labelledby="register-title">
+    <header class="register-heading">
+      <p class="register-eyebrow">CREA TU CUENTA</p>
+      <h1 id="register-title">Únete a nosotros</h1>
+      <p class="register-description">Completa tus datos para registrarte.</p>
+    </header>
+
+    <form class="register-form">
+      <div class="register-grid">
+        <div class="form-field">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            name="nombre"
+            autocomplete="given-name"
+            required
+            [(ngModel)]="nombre"
+          />
+        </div>
+        <div class="form-field">
+          <label for="apellidos" class="form-label">Apellidos</label>
+          <input
+            type="text"
+            class="form-control"
+            id="apellidos"
+            name="apellidos"
+            autocomplete="family-name"
+            required
+            [(ngModel)]="apellidos"
+          />
+        </div>
+        <div class="form-field">
+          <label for="nif" class="form-label">NIF</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nif"
+            name="nif"
+            autocomplete="off"
+            required
+            [(ngModel)]="nif"
+          />
+        </div>
+        <div class="form-field">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+            [(ngModel)]="email"
+          />
+        </div>
+        <div class="form-field">
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="telefono"
+            name="telefono"
+            autocomplete="tel"
+            required
+            [(ngModel)]="telefono"
+          />
+        </div>
+        <div class="form-field">
+          <label for="sexo" class="form-label">Sexo</label>
+          <select class="form-select" id="sexo" name="sexo" required [(ngModel)]="sexo">
+            <option value="" selected disabled>Selecciona una opción</option>
+            <option value="mujer">Mujer</option>
+            <option value="hombre">Hombre</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-field form-field-wide">
+          <label for="conocio-pagina" class="form-label">¿Cómo conociste la página?</label>
+          <select
+            class="form-select"
+            id="conocio-pagina"
+            name="conocioPagina"
+            required
+            [(ngModel)]="conocioPagina"
+          >
+            <option value="" selected disabled>Selecciona una opción</option>
+            <option value="google">Buscando en Google</option>
+            <option value="amigo">A través de un amigo</option>
+            <option value="profesor">Por mi profesor</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="contrasena" class="form-label">Contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            id="contrasena"
+            name="contrasena"
+            autocomplete="new-password"
+            required
+            [(ngModel)]="contrasena"
+          />
+        </div>
+        <div class="form-field">
+          <label for="confirmar-contrasena" class="form-label">Confirmar contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            id="confirmar-contrasena"
+            name="confirmarContrasena"
+            autocomplete="new-password"
+            required
+            [(ngModel)]="confirmarContrasena"
+          />
+        </div>
+        <div class="form-field form-field-wide">
+          <label for="terminos" class="form-label">Acepto los términos y condiciones</label>
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="terminos"
+            name="terminos"
+            required
+            [(ngModel)]="terminos"
+          />
+        </div>
+      </div>
+      <button type="submit" (click)="sendForm()" class="btn btn-primary register-submit">
+        Registrarse
+      </button>
+    </form>
+  </section>
+</main>
