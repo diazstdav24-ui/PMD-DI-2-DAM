@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Character } from '../../interfaces/character-list-response';
 
 @Component({
@@ -9,4 +9,12 @@ import { Character } from '../../interfaces/character-list-response';
 })
 export class CharacterItemComponent {
   character = input<Character>();
+  characterClicked = output<number>();
+
+  emitCharacterClicked() {
+    debugger;
+    const id = this.character()?.id;
+    id ? this.characterClicked.emit(id) : alert('Personaje no encontrado');
+    console.log(id)
+  }
 }
