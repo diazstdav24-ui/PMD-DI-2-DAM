@@ -12,9 +12,7 @@ export class CharacterItemComponent {
   characterClicked = output<number>();
 
   emitCharacterClicked() {
-    debugger;
     const id = this.character()?.id;
     id ? this.characterClicked.emit(id) : alert('Personaje no encontrado');
-    console.log(id)
   }
 }
