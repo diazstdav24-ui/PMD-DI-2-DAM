@@ -1,0 +1,12 @@
+<div
+  class="progress"
+  role="progressbar"
+  aria-label="Barra de progreso"
+  [attr.aria-valuenow]="value()"
+  aria-valuemin="0"
+  aria-valuemax="100"
+>
+  <div class="progress-bar" [style.width.%]="value()" [style.background-color]="color()">
+    {{ value() }}%
+  </div>
+</div>

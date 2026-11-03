@@ -1,0 +1,13 @@
+<h1>Character</h1>
+
+<!-- Cuando se pulse en el botón despliega el modal, llamandolo a traves del metodo -->
+<div class="row">
+  @for (character of characterList(); track character.id) {
+    <div class="col-md-3">
+      <app-character-item-component
+        [character]="character"
+        (characterClicked)="openCharacterModal($event)"
+      ></app-character-item-component>
+    </div>
+  }
+</div>

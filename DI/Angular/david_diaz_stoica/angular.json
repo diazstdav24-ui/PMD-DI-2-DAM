@@ -3,7 +3,7 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
-    "analytics": "d0d0a3c6-136e-4e78-9840-a3050d53ae89"
+    "analytics": "a8e2f376-c8ce-454c-b36b-1c2d929898f7"
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -25,8 +25,9 @@
                 "input": "public"
               }
             ],
-            "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css", "src/styles.css"],
-            "polyfills": ["@angular/localize/init"]
+            "styles": [
+              "src/styles.css"
+            ]
           },
           "configurations": {
             "production": {
