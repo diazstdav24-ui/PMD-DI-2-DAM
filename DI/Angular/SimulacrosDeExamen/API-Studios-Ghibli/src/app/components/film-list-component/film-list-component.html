@@ -1,0 +1,10 @@
+<div class="container py-4">
+  <h1 class="mb-4">Películas de Studio Ghibli</h1>
+  <div class="row g-4">
+    @for (film of filmList(); track film.id) {
+      <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+        <app-film-item-component [film]="film"></app-film-item-component>
+      </div>
+    }
+  </div>
+</div>

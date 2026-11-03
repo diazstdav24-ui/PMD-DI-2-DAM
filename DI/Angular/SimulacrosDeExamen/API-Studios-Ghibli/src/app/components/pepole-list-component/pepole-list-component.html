@@ -1,0 +1,10 @@
+<div class="container py-4">
+  <h1 class="mb-4">Personajes de Studio Ghibli</h1>
+  <div class="row g-4">
+    @for (people of peopleList(); track people.id) {
+      <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+        <app-pepole-item-component [people]="people"></app-pepole-item-component>
+      </div>
+    }
+  </div>
+</div>

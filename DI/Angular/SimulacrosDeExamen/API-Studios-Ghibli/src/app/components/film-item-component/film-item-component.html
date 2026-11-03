@@ -1,0 +1,10 @@
+<div class="card h-100 shadow-sm film-card">
+  <img [src]="film()?.image" class="card-img-top film-img" alt="Cartel de la película" />
+  <div class="card-body d-flex flex-column">
+    <h5 class="card-title">{{ film()?.title }}</h5>
+    <h6 class="card-subtitle mb-3 text-body-secondary">
+      {{ film()?.director }} · {{ film()?.release_date }}
+    </h6>
+    <!--  <a class="btn btn-primary mt-auto" [___(7)___]="['/film-detail', film()?.id]">Ver detalle</a>-->
+  </div>
+</div>
