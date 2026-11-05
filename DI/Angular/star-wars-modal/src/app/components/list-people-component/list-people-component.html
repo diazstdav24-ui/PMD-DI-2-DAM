@@ -1,0 +1,10 @@
+<div class="row">
+  @for (people of listPeople(); track people.name) {
+    <div class="col-md-3 justify-content-between">
+      <app-people-item-component
+        [people]="people"
+        (peopleClicked)="open($event)" //Abre el evento pasandole el id que se ha propagado hacia arriba
+      ></app-people-item-component>
+    </div>
+  }
+</div>
