@@ -1,0 +1,7 @@
+<div class="row">
+  @for (film of filmList(); track film.title) {
+    <div class="col-md-3 justify-content-between">
+      <app-film-item-component [film]="film"></app-film-item-component>
+    </div>
+  }
+</div>

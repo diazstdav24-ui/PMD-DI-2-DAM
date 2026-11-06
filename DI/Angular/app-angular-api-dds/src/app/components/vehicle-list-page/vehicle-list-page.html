@@ -1,0 +1,10 @@
+<div class="row">
+  @for (vehicle of vehicleList(); track vehicle.name) {
+    <div class="col-md-3 justify-content-between">
+      <app-vehicle-item-component
+        [vehicle]="vehicle"
+        (vehicleClicked)="open($event)"
+      ></app-vehicle-item-component>
+    </div>
+  }
+</div>
